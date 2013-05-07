@@ -18,4 +18,4 @@ Links
 =====
 
 * Boost MPL: www.boost.org/libs/mpl/‎
-* Babylonian Algorithm to compute square roots: http://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method
+* Article on Wikipedia about the Babylonian algorithm to compute square roots: http://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method

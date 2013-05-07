@@ -51,10 +51,19 @@ The file <i>src/sqrt.hpp</i> provides the implementation for a compile-time sqrt
 Example:
 <pre>
 run-time:      float a = sqrtf(9.0);
-compile-time:  typedef mpb::sqrt&lt;mpl::float_&lt;9,0>>::type f; // equivalent to mpl::float_&lt;3,0>;
+compile-time:  typedef mpb::sqrt&lt;mpl::float_&lt;9,0>>::type f; // evaluated to mpl::float_&lt;3,0>;
 </pre>
 
 The square root is computed using the Babylonian Algorithm, with a default number of iterations set to 3, which leads to pretty good results on average.
+
+Other functions
+---------------
+
+The file <i>src/compute.hpp</i> provides implementations for the following maths functions:
+* factorial: <pre>typedef factor&lt;4>::type f; // evaluated to mpl::int_&lt;24></pre>
+* power: <pre>typedef pow&lt;2, 3>::type f; // evaluated to mpl::int_&lt;8></pre>
+* odd: <pre>typedef odd&lt;3>::type f; // evaluated to mpl::bool_&lt;true></pre>
+* even: <pre>typedef even&lt;3>::type f; // evaluated to mpl::bool_&lt;false></pre>
 
 Compilers Tested
 ================

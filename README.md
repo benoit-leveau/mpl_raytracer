@@ -13,7 +13,7 @@ Running the executable just transfers the image to a file, there is no additiona
 
 Because of compiler limitations (and I found a lot of limitations), the "image" computed is very small (32x32), and the algorithm is stopping at the first impact (it is therefore more a raycaster than a raytracer).
 
-The code defines the following main classes:
+The code defines the following template classes:
 * Ray
 * Light
 * Color

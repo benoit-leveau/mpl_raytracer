@@ -1,5 +1,3 @@
-Status: WIP - found this old code and it doesn't compile yet.
-
 Compile-time Raytracer, implemented entirely using MPL, boost's meta-programming library.
 
 Rationale
@@ -14,6 +12,19 @@ The program performs raytracing operations during compilation, so when the progr
 Running the executable just transfers the image to a file, there is no additional computation done at running-time.
 
 Because of compiler limitations (and I found a lot of limitations), the "image" computed is very small (32x32), and the algorithm is stopping at the first impact (it is therefore more a raycaster than a raytracer).
+
+The code defines the following template classes:
+* Ray
+* Light
+* Color
+* Pixel
+* Sphere
+* HitSphere (5 classes)
+* ImageSequence_tile
+* ImageSequence
+* Vec3D (including operations between vectors: addition, substraction, multiplication by another vector or a scalar)
+
+These classes are used to compute the projection of a sphere onto an image plane. Because of memory limitations, I didn't go farther to implement a proper perspective projection. 
 
 Interesting Bits
 ================
@@ -51,17 +62,39 @@ The file <i>src/sqrt.hpp</i> provides the implementation for a compile-time sqrt
 Example:
 <pre>
 run-time:      float a = sqrtf(9.0);
-compile-time:  typedef mpb::sqrt&lt;mpl::float_&lt;9,0>>::type f; // equivalent to mpl::float_&lt;3,0>;
+compile-time:  typedef mpb::sqrt&lt;mpl::float_&lt;9,0>>::type f; // evaluated to mpl::float_&lt;3,0>;
 </pre>
 
 The square root is computed using the Babylonian Algorithm, with a default number of iterations set to 3, which leads to pretty good results on average.
 
+Other functions
+---------------
+
+The file <i>src/compute.hpp</i> provides implementations for the following maths functions:
+* factorial: <pre>typedef factor&lt;4>::type f; // evaluated to mpl::int_&lt;24></pre>
+* power: <pre>typedef pow&lt;2, 3>::type f; // evaluated to mpl::int_&lt;8></pre>
+* odd: <pre>typedef odd&lt;3>::type f; // evaluated to mpl::bool_&lt;true></pre>
+* even: <pre>typedef even&lt;3>::type f; // evaluated to mpl::bool_&lt;false></pre>
+
 Compilers Tested
 ================
 
-Originally tested with MSVC8 (VS2005) and whatever boost distribution I was using at the time.
+Originally developed with MSVC8 (VS2005) and whatever boost distribution I was using at the time.
 
-Now being tested with gcc 4.2.1 and Boost 1.53. Doesn't work yet, yuck!
+Now being tested with gcc 4.2.1 and Boost 1.53.
+
+Performances
+============
+
+Tests run with gcc 4.2.1 on a 2.4GHz Core i7
+<table>
+<tr><th>Image Size</th><th>Compilation Time</th><th>Memory Used</th><th>Executable Size</th></tr>
+<tr><td>16x16</td><td>6s</td><td>200MB</td><td>1.2MB</td></tr>
+<tr><td>32x32</td><td>1m</td><td>690MB</td><td>5MB</td></tr>
+<tr><td>64x64</td><td>18m</td><td>2.1GB</td><td>19.9MB</td></tr>
+</table>
+
+As you can see, the performances degrade very quickly.
 
 Links
 =====

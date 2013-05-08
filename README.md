@@ -39,7 +39,7 @@ mpl::float_
 
 The file <i>src/float.hpp</i> provides an extension for MPL, the <i>boost::mpl::float_</i> class.
 
-It is internally stored (as a type, in the compiler) as a fraction of two <i>boost::mpl::llong</i>.
+It is internally stored (as a type, in the compiler) as a fraction of two <i>boost::mpl::llong_</i>.
 
 Usage:
 <pre>
@@ -50,7 +50,7 @@ Internal implementation will actually use <i>rational_impl&lt;167,100></i>.
 
 Using the Euclidian algorithm, the class rational_impl is converted to an irreducible fraction.
 
-For instance, <i>float_&lt;15,10></i> will convert to <i>rational_impl&lt;3,2></i>.
+For instance, <i>float_&lt;1,5></i> will resolve to <i>rational_impl&lt;15,10></i> which will be reduced to <i>rational_impl&lt;3,2></i>.
 
 Why creating more classes in the compiler memory? When performing operations like additions, multiplications and divisions, you want to use the irreducible fraction so that the compiler can re-use existing classes.
 

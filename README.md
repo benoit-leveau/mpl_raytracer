@@ -86,13 +86,15 @@ Now being tested with gcc 4.2.1 and Boost 1.53.
 Performances
 ============
 
-Tests run with gcc 4.2.1:
+Tests run with gcc 4.2.1 on a 2.4GHz Core i7
 <table>
 <tr><th>Image Size</th><th>Compilation Time</th><th>Memory Used</th><th>Executable Size</th></tr>
 <tr><td>16x16</td><td>6s</td><td>200MB</td><td>1.2MB</td></tr>
-<tr><td>32x32</td><td>60s</td><td>690MB</td><td>5MB</td></tr>
-<tr><td>64x64</td><td>6s</td><td>200MB</td><td></td></tr>
+<tr><td>32x32</td><td>1m</td><td>690MB</td><td>5MB</td></tr>
+<tr><td>64x64</td><td>18m</td><td>2.1GB</td><td>19.9MB</td></tr>
 </table>
+
+As you can see, the performances degrade very quickly.
 
 Links
 =====

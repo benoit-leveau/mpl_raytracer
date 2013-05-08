@@ -12,3 +12,7 @@ $(EXECUTABLE): $(OBJECTS)
 
 .cpp.o:
 	$(CC) $(CFLAGS) $< -o $@
+
+clean:
+	rm -rf src/*.o
+	rm mpl_raytrace

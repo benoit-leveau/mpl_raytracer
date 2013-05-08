@@ -102,8 +102,8 @@ namespace boost
 			template< typename V1, typename V2 >
 			struct apply : 
 				mpl::plus<
-					mpb::dot_product_impl::partial_dot_x_y<typename V1, typename V2>,
-					mpb::dot_product_impl::partial_dot_z<typename V1, typename V2>
+					mpb::dot_product_impl::partial_dot_x_y<V1, V2>,
+					mpb::dot_product_impl::partial_dot_z<V1, V2>
 				>::type
 			{};
 		};

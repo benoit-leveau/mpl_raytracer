@@ -42,13 +42,13 @@ template <typename Value, typename Exponent>
 struct pow : 
 	mpl::times<
 		Value, 
-		pow< Value, mpl::int_< Exponent::value - 1 >>
+	pow< Value, mpl::int_< Exponent::value - 1 > >
 	>::type
 {};
 
 // specialization for 0
 template <typename Value>
-struct pow<Value, mpl::int_<0>> : 
+struct pow<Value, mpl::int_<0> > : 
 	mpl::int_<1>::type
 {};
 

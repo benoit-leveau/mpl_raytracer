@@ -147,7 +147,7 @@ struct Pixel
 	BOOST_STATIC_CONSTANT(int, x = PosX::value);
 	BOOST_STATIC_CONSTANT(int, y = PosY::value);
 
-	typedef Pixel< typename PosX, typename PosY, start_x, tile_size_x > type;
+	typedef Pixel< PosX, PosY, start_x, tile_size_x > type;
 
 	typedef PosX X;
 	typedef PosY Y;
@@ -182,7 +182,7 @@ struct ImageSequence_tile
 	BOOST_STATIC_CONSTANT(int, tx = tile_size_x);
 	BOOST_STATIC_CONSTANT(int, ty = tile_size_y);
 
-	#pragma message("computing tile...")
+	// #pragma message("computing tile...")
     typedef imagesequence_tag tag;
     typedef ImageSequence_tile type;
 
@@ -201,7 +201,7 @@ struct ImageSequence_tile
 template< int SIZE_X, int SIZE_Y >
 struct ImageSequence
 {
-	#pragma message("computing image...")
+	// #pragma message("computing image...")
 
 	BOOST_STATIC_CONSTANT(int, size_x = SIZE_X);
 	BOOST_STATIC_CONSTANT(int, size_y = SIZE_Y);

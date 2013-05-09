@@ -81,7 +81,9 @@ Compilers Tested
 
 Originally developed with MSVC8 (VS2005) and whatever boost distribution I was using at the time.
 
-Now being tested with gcc 4.2.1 and Boost 1.53.
+Now been tested with:
+* boost 1.44-1.53
+* gcc versions 4.2.1 - 4.4.6
 
 Performances
 ============

@@ -79,7 +79,7 @@ template
 void display_sqrt_float(U x)
 {
 	typedef mpb::sqrt<U, 3> sqrt_value;
-	std::cout << "sqrt(" << float_value(U) << ")=" << float_value(sqrt_value) << " stored as " << sqrt_value::numerator << "/" << sqrt_value::denominator << " (real value=" << sqrt(float_value(U)) << ")" << std::endl;
+	std::cout << "sqrt(" << float_value(U) << ")=" << float_value(sqrt_value) << " - real value=" << sqrt(float_value(U)) << " - stored as " << sqrt_value::numerator << "/" << sqrt_value::denominator << std::endl;
 }
 
 void print_test_sqrt()
@@ -105,6 +105,8 @@ void print_test_sqrt()
 
 void print_test_vec3d()
 {
+    std::cout << "--- Tests Vec3D<float> ---" << std::endl;
+
 	typedef mpb::Vec3D< mpb::float_<0,2>, mpb::float_<2,0>, mpb::float_<3,6> >::type vec1;
 	typedef mpb::Vec3D< mpb::float_<0,4>, mpb::float_<3,0>, mpb::float_<0,1> >::type vec2;
 	
@@ -122,10 +124,13 @@ void print_test_vec3d()
 
 	typedef mpl::times< vec1, vec2 > result4;
 	std::cout << "(0.2 2.0 3.6) * (0.4 3.0 0.1) = " << float_value(result4) << std::endl;
+
+	std::cout << std::endl;
 }
 
 void print_test_raytrace()
 {
+    std::cout << "--- Tests Ray, Sphere, HitSphere ---" << std::endl;
 	// ray viewRay = { {float(x), float(y), -10000.0f}, { 0.0f, 0.0f, 1.0f}};
 
 	typedef Ray< 
@@ -182,8 +187,6 @@ void print_test_raytrace()
 		sphere2,
 		mpb::float_<1000,0>
 	>::type hit2;
-
-	std::cout << std::endl;
 
 	std::cout << "Launching a ray start=(0,0,0) direction=(1,0,0)" << std::endl;
 	std::cout << "=> sphere 1 at (15,4,0) radius=5 " << std::endl;
